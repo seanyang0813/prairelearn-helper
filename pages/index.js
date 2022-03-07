@@ -37,7 +37,7 @@ export default function Home() {
         // shuffle the choices string array
         choices_arr = shuffle(choices_arr);
         return (
-            "<pl-multiple-choice>\n " +
+            '<pl-multiple-choice answers-name="q1">\n' +
             choices_arr.join("") +
             "</pl-multiple-choice>\n"
         );
