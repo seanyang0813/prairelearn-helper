@@ -26,17 +26,21 @@ export default function Home() {
         choices_arr = wrong_choices
             .filter((choice) => choice !== "")
             .map((choice) => {
-                return `<pl-answer correct="false">${choice}</pl-answer>\n`;
+                return `    <pl-answer correct="false">${choice}</pl-answer>\n`;
             });
         // get the correct choice if there is one
         if (correct_choice.length > 0) {
             choices_arr.push(
-                `<pl-answer correct="true" >${correct_choice}</pl-answer>\n`
+                `   <pl-answer correct="true" >${correct_choice}</pl-answer>\n`
             );
         }
         // shuffle the choices string array
         choices_arr = shuffle(choices_arr);
-        return choices_arr.join("");
+        return (
+            "<pl-multiple-choice>\n " +
+            choices_arr.join("") +
+            "</pl-multiple-choice>\n"
+        );
     }
 
     const getOutputedQs = () => {
